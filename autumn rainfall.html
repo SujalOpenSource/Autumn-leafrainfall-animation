@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        background-image: linear-gradient(to right, #ffecff, 0%, black 100%);
+        overflow: hidden;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .fa-snowflake {
+        color: white;
+        position: absolute;
+        top: -20px;
+        animation: fall linear forwards;
+      }
+      @keyframes fall {
+        from {
+          top: -20vh;
+          transform: rotate(0deg);
+        }
+        to {
+          top: 200vh;
+          transform: translate(200px);
+          transform: rotate(720);
+        }
+      }
+      h1 {
+        color: white;
+        text-align: center;
+        bottom: 50px;
+      }
+      .center {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cemter">
+      <h1>Autumn Leaf Rainfall</h1>
+    </div>
+
+    <script>
+      setInterval(createSnowFlake, 100);
+
+      function createSnowFlake() {
+        const snow_flake = document.createElement("b");
+        snow_flake.innerHTML = "🍁";
+        snow_flake.classList.add("fa-snowflake");
+        snow_flake.style.left = Math.random() * window.innerWidth + "px";
+        snow_flake.style.animationDuration = Math.random() * 4 + 5 + "s";
+        snow_flake.style.opacity = Math.random();
+        snow_flake.style.fontSize = Math.random() * 45 + 20 + "px";
+        document.body.appendChild(snow_flake);
+
+        setTimeout(() => {
+          snow_flake.remove();
+        }, 8000);
+      }
+    </script>
+  </body>
+</html>
